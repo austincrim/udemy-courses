@@ -1,0 +1,25 @@
+body {
+  background-color: #eaf6f6;
+  font-family: "Montserrat", sans-serif;
+}
+
+h1, h3 {
+  font-family: "Slabo 27px", serif;
+
+}
+
+h1 {
+  color: #66bfbf;
+}
+h3 {
+  color: #c04040;
+}
+
+hr {
+  border-color: lightgrey;
+  border-width: 0.5px;
+}
+
+img {
+  border-radius: 100%;
+}

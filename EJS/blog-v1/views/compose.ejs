@@ -1,0 +1,15 @@
+<%- include("header") -%>
+
+<form class="form" action="/compose" method="POST">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input class="form-control" type="text" name="title" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" name="content" cols="30" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg ">Post</button>
+</form>
+
+<%- include("footer") -%>
