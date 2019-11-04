@@ -57,22 +57,36 @@ app
     });
   });
 
-app.route("/articles/:postId")
-    .get(function(req, res) {
-        const postId = req.params.postId;
-        Article.findOne({ _id: postId }, function(err, foundArticle) {
-            if (foundArticle) {
-                res.send(foundArticle);
-            } else {
-                res.send("No article was found");
-            }
-        });
-    })
-    .put()
+app
+  .route("/articles/:postId")
+  .get(function(req, res) {
+    const postId = req.params.postId;
+    Article.findOne({ _id: postId }, function(err, foundArticle) {
+      if (foundArticle) {
+        res.send(foundArticle);
+      } else {
+        res.send("No article was found");
+      }
+    });
+  })
+  .put(function(req, res) {
+    Article.updateOne(
+      { _id: req.params.postId },
+      { title: req.body.title, content: req.body.content },
+      { overwrite: true },
+      function(err) {
+        if (!err) {
+          res.send("Update successful");
+        } else {
+          res.send(err);
+        }
+      }
+    );  
+  })
 
-    .patch()
+  .patch()
 
-    .delete();
+  .delete();
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
