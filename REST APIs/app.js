@@ -24,8 +24,8 @@ const articleSchema = {
 
 const Article = mongoose.model("Article", articleSchema);
 
-app
-  .route("/articles")
+///////////////////////////////// ROUTES FOR ALL ARTICLES ////////////////////////
+app.route("/articles")
 
   .get(function(req, res) {
     Article.find({}, function(err, foundArticles) {
@@ -57,8 +57,9 @@ app
     });
   });
 
-app
-  .route("/articles/:postId")
+///////////////////////////////// ROUTES FOR ALL ARTICLES ////////////////////////
+app.route("/articles/:postId")
+
   .get(function(req, res) {
     const postId = req.params.postId;
     Article.findOne({ _id: postId }, function(err, foundArticle) {
@@ -81,12 +82,35 @@ app
           res.send(err);
         }
       }
-    );  
+    );
   })
 
-  .patch()
+  .patch(function(req, res) {
+    Article.updateOne(
+      { _id: req.params.postId },
+      { $set: req.body },
+      function(err) {
+        if (!err) {
+          res.send("Update successful");
+        } else {
+          res.send(err);
+        }
+      }
+    );
+  })
 
-  .delete();
+  .delete(function(req, res) {
+    Article.findByIdAndDelete(
+      req.params.postId,
+      function(err) {
+        if(!err) {
+          res.send("Delete successful")
+        } else {
+          res.send(err)
+        }
+      }
+    ); 
+  });
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
