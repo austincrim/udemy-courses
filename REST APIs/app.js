@@ -27,8 +27,8 @@ const Article = mongoose.model("Article", articleSchema);
 ///////////////////////////////// ROUTES FOR ALL ARTICLES ////////////////////////
 app.route("/articles")
 
-  .get(function(req, res) {
-    Article.find({}, function(err, foundArticles) {
+  .get(function (req, res) {
+    Article.find({}, function (err, foundArticles) {
       if (!err) {
         res.send(foundArticles);
       } else {
@@ -37,12 +37,12 @@ app.route("/articles")
     });
   })
 
-  .post(function(req, res) {
+  .post(function (req, res) {
     const article = new Article({
       title: req.body.title,
       content: req.body.content
     });
-    article.save(function(err) {
+    article.save(function (err) {
       if (!err) {
         res.send("success");
       } else {
@@ -51,8 +51,8 @@ app.route("/articles")
     });
   })
 
-  .delete(function(req, res) {
-    Article.deleteMany({}, function(err) {
+  .delete(function (req, res) {
+    Article.deleteMany({}, function (err) {
       err ? res.send(err) : res.send("All articles deleted");
     });
   });
@@ -62,7 +62,7 @@ app.route("/articles/:postId")
 
   .get(function(req, res) {
     const postId = req.params.postId;
-    Article.findOne({ _id: postId }, function(err, foundArticle) {
+    Article.findOne({ _id: postId }, function (err, foundArticle) {
       if (foundArticle) {
         res.send(foundArticle);
       } else {
@@ -70,12 +70,12 @@ app.route("/articles/:postId")
       }
     });
   })
-  .put(function(req, res) {
+  .put(function (req, res) {
     Article.updateOne(
       { _id: req.params.postId },
       { title: req.body.title, content: req.body.content },
       { overwrite: true },
-      function(err) {
+      function (err) {
         if (!err) {
           res.send("Update successful");
         } else {
@@ -112,6 +112,6 @@ app.route("/articles/:postId")
     ); 
   });
 
-app.listen(3000, function() {
+app.listen(3000, function () {
   console.log("Server started on port 3000");
 });
