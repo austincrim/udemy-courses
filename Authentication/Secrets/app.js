@@ -61,9 +61,7 @@ app.post('/register', function (req, res) {
                 res.render('secrets')
             }
         });
-
-    })
-
+    });
 });
 
 app.post('/login', function (req, res) {
@@ -73,7 +71,7 @@ app.post('/login', function (req, res) {
     User.findOne({ email: username }, function (err, user) {
         if (user) {
             bcrypt.compare(password, user.password, function (err, result) {
-                if(result === true) {
+                if (result === true) {
                     res.render('secrets');
                 }
             });
