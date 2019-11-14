@@ -36,6 +36,10 @@ app.get('/register', function(req, res) {
     res.render('register');
 });
 
+app.get('/submit', function(req, res) {
+    res.render('submit');
+});
+
 app.get('/logout', function(req, res) {
     res.render('home');
 });
