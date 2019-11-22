@@ -57,7 +57,7 @@ app.route("/articles")
     });
   });
 
-///////////////////////////////// ROUTES FOR ALL ARTICLES ////////////////////////
+///////////////////////////////// ROUTES FOR SPECIFIC ARTICLES////////////////////////
 app.route("/articles/:postId")
 
   .get(function(req, res) {

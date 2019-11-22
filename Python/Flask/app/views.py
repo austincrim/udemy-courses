@@ -1,7 +1,7 @@
 from flask import render_template, request
 from app import app
-from bson.objectid import ObjectId
 import pymongo
+from bson.objectid import ObjectId
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client.blogDB
