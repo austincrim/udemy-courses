@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from app import app
 from bson.objectid import ObjectId
 import pymongo
@@ -34,5 +34,10 @@ def compose():
     if request.method == "GET":
         return render_template("compose.html")
 
-    # if request.method == "POST":
-    #     TODO
+    if request.method == "POST":
+        post = {
+            "title": request.form["title"],
+            "content": request.form["content"]
+        }
+        posts_clctn.insert_one(post)
+        return redirect(url_for('index'))
