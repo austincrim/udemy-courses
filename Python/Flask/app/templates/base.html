@@ -1,31 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-  <title>{% block title %}{% endblock %}</title>
-  <!-- Bootstrap core CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom styles for this template -->
-  <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
-</head>
+  <meta charset="utf-8">
+  <title>Daily Journal</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <p class="navbar-brand">DAILY JOURNAL</p>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- 6 -->
+        <li id="home"><a href="/">HOME</a></li>
+        <li id="about"><a href="/compose">COMPOSE</a></li>
+        <li id="contact"><a href="/contact">CONTACT US</a></li>
+      </ul>
+    </div>
+  </nav>
 
 <body>
   <div class="container">
-    <div class="header clearfix">
-      <nav> 
-        <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="/">Home</a></li>
-          <li role="presentation"><a href="/about">About</a></li>
-          <li role="presentation"><a href="http://flask.pocoo.org" target="_blank">More About Flask</a></li>
-        </ul>
-      </nav>
-    </div>
     {% block body %}
     {% endblock %}
-    <footer class="footer">
-      <p>© 2016 Your Name Here</p>
-    </footer>
-  </div> <!-- /container -->
+  </div>
+  <div class="footer-padding"></div>
+  <div class="footer">
+    <p>Made with ❤️ by Austin Crim</p>
+  </div>
+  </div>
 </body>
 
 </html>
