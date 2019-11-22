@@ -2,6 +2,7 @@ from flask import render_template, request
 
 from app import app
 
+
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == 'GET':
@@ -10,6 +11,7 @@ def index():
     if request.method == 'POST':
         data = request.form['name']
         return render_template("index.html", data=data)
+
 
 @app.route('/about')
 def about():
