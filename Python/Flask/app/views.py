@@ -1,30 +1,20 @@
 from flask import render_template, request, redirect, url_for
 from app import app
-import pymongo
 from bson.objectid import ObjectId
+from flask_pymongo import PyMongo
 
-client = pymongo.MongoClient("mongodb://localhost:27017/")
-db = client.blogDB
-posts_clctn = db.posts
-
-# post = {
-#     "title": "Test",
-#     "content": "Test content"
-# }
-
-# post_id = posts.insert_one(post).inserted_id
-
+mongo = PyMongo(app)
 
 @app.route('/')
 def index():
-    all_posts = posts_clctn.find()
+    all_posts = mongo.db.posts.find()
     return render_template("index.html", posts = all_posts)
 
 
 @app.route('/posts/<post_id>')
 def posts(post_id):
     print(post_id)
-    postSelected = posts_clctn.find_one({"_id": ObjectId(post_id)}) 
+    postSelected = mongo.db.posts.find_one({"_id": ObjectId(post_id)}) 
     print(postSelected)   
     return render_template("post.html", postSelected = postSelected)
 
@@ -39,5 +29,5 @@ def compose():
             "title": request.form["title"],
             "content": request.form["content"]
         }
-        posts_clctn.insert_one(post)
+        mongo.db.posts.insert_one(post)
         return redirect(url_for('index'))
