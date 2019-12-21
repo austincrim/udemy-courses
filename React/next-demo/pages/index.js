@@ -1,7 +1,6 @@
 import Layout from "../components/Layout";
-import fetch from 'isomorphic-unfetch'
 
-const Index = props => {
+const Index = () => {
     return (
         <Layout>
             <div className="intro">

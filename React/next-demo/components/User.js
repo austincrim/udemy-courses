@@ -1,24 +1,22 @@
 import Link from "next/link";
 
-const Post = props => {
+const User = props => {
     return (
         <>
-            <Link href="/p/[id]" as={`/p/${props.id}`}>
-                <a>
-                    <div className="post">
-                        <h1>{props.title}</h1>
-                        <p>{props.content}</p>
-                    </div>
-                </a>
-            </Link>
+            <div className="user">
+                <img src={props.picture} />
+                <h1>{props.firstname} {props.lastname}</h1>
+                <p>{props.email}</p>
+            </div>
             <style jsx>{`
-                .post {
+                .user {
                     border-radius: 10px;
                     padding: 5px 25px;
+                    text-align: center;
                     margin: 50px;
                     transition: transform 0.3s, box-shadow 0.3s;
                 }
-                .post:hover {
+                .user:hover {
                     transform: translate(0, -5px);
                     box-shadow: 1px 1px 10px;
                 }
@@ -26,9 +24,12 @@ const Post = props => {
                     color: inherit;
                     text-decoration: none;
                 }
+                img {
+                    border-radius: 100%;
+                }
             `}</style>
         </>
     );
 };
 
-export default Post;
+export default User;
