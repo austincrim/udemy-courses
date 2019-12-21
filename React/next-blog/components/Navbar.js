@@ -5,19 +5,20 @@ const Navbar = () => {
         <div>
             <ul>
                 <Link href="/">
-                    <li><a>HOME</a></li>
-                </Link>
-                <Link href="./about">
-                    <li><a>ABOUT</a></li>
+                    <li>
+                        <a>HOME</a>
+                    </li>
                 </Link>
                 <Link href="./posts">
-                    <li><a>POSTS</a></li>
+                    <li>
+                        <a>POSTS</a>
+                    </li>
                 </Link>
             </ul>
 
             <style jsx>{`
                 ul {
-                    border-bottom: .5px solid #ddd;
+                    border-bottom: 0.5px solid #ddd;
                     text-align: center;
                     padding-bottom: 10px;
                 }
@@ -29,7 +30,7 @@ const Navbar = () => {
 
                 li:hover {
                     cursor: pointer;
-                    opacity: .6;
+                    opacity: 0.6;
                 }
             `}</style>
         </div>
