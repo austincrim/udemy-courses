@@ -16,6 +16,9 @@ const Index = () => {
                 <p>
                     Read more here: <a href="https://nextjs.org">Next.js Official Website</a>
                 </p>
+                <p>
+                    This demo retrieves random user data from the <a href="https://randomuser.me">Random User Generator API</a>
+                </p>
             </div>
 
             <style jsx>{`

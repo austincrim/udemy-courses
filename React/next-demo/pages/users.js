@@ -1,8 +1,9 @@
 import Layout from '../components/Layout'
 import UserList from '../components/UserList'
+import fetch from 'isomorphic-unfetch'
 
 
-const Posts = (props) => {
+const Users = (props) => {
 
     return (
         <Layout>
@@ -12,11 +13,11 @@ const Posts = (props) => {
 }
 
 
-Posts.getInitialProps = async function() {
+Users.getInitialProps = async function() {
     const res = await fetch("https://randomuser.me/api/?results=5")
     const data = await res.json();
     
     return {users: data.results}
 };
 
-export default Posts;
+export default Users;

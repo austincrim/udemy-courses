@@ -1,4 +1,3 @@
-import Link from "next/link";
 import User from "./User";
 
 const UserList = props => {
@@ -7,10 +6,15 @@ const UserList = props => {
             <ul>
                 {props.users.map(user => (
                     <div key={user.login.uuid}>
-                        <User firstname={user.name.first} lastname={user.name.last} email={user.email} picture={user.picture.large}/>
+                        <User user={user}/>
                     </div>
                 ))}
             </ul>
+            <style jsx>{`
+                ul {
+                    padding-left: 0;
+                }
+            `}</style>
         </div>
     );
 };

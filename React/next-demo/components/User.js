@@ -1,20 +1,24 @@
 import Link from "next/link";
 
 const User = props => {
+    console.log(props)
     return (
         <>
             <div className="user">
-                <img src={props.picture} />
-                <h1>{props.firstname} {props.lastname}</h1>
-                <p>{props.email}</p>
+                <img src={props.user.picture.large} />
+                <h1>{props.user.name.first} {props.user.name.last}</h1>
+                <p>{props.user.email}</p>
+                <p>{props.user.phone}</p>
             </div>
             <style jsx>{`
                 .user {
+                    background-color: #dfc;
                     border-radius: 10px;
-                    padding: 5px 25px;
+                    padding: 10px 25px;
                     text-align: center;
-                    margin: 50px;
                     transition: transform 0.3s, box-shadow 0.3s;
+                    margin: 30px auto;
+                    width: 50%;
                 }
                 .user:hover {
                     transform: translate(0, -5px);
