@@ -9,7 +9,7 @@ const Layout = props => {
 
             <style jsx>{`
                 font-family: sans-serif;
-
+                text-align: center;
             `}</style>
         </div>
     )
