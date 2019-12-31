@@ -10,7 +10,7 @@ const Users = props => {
       <Link href="./users">
         <Button variant="contained">Fetch</Button>
       </Link>
-      <p>Notice that users get re-fetched without page refresh.</p>
+      <p>Notice that users get re-fetched without a page refresh.</p>
       <UserList users={props.users} />
     </Layout>
   );

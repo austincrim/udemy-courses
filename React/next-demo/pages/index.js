@@ -23,7 +23,6 @@ const Index = () => {
 
             <style jsx>{`
                 .intro {
-                    text-align: center;
                     padding: 40px 20%;
                 }
             `}</style>

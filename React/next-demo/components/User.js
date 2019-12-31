@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const User = props => {
-    console.log(props)
     return (
         <>
             <div className="user">
