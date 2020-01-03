@@ -4,7 +4,7 @@ const Index = () => {
     return (
         <Layout>
             <div className="intro">
-                <h1>Next.js Blog Demo</h1>
+                <h1>Next.js Users Demo</h1>
                 <p>
                     This small project was developed to better understand
                     Next.js and its capabilities.
